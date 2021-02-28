@@ -43,6 +43,7 @@ public class SpotifyClient {
                 if (reply.replace(System.lineSeparator(), "").startsWith("Encoding:")) {
                     player = new SongPlayer(reply);
                     Thread playerThread = new Thread(player);
+                    playerThread.setDaemon(true);
                     playerThread.start();
                     System.out.println("[ Your song is now playing... ]");
                     continue;
